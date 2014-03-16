@@ -1,6 +1,6 @@
 'use strict';
 
-var alien_language_kata = require('../lib/alien-language-kata.js');
+var alien = require('../lib/alien-language-kata.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,15 +22,29 @@ var alien_language_kata = require('../lib/alien-language-kata.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
+exports.match = {
+  '1 test, 1 match': function(test) {
     test.expect(1);
-    // tests here
-    test.equal(alien_language_kata.awesome(), 'awesome', 'should be awesome.');
+    test.deepEqual(alien.match(['abc'], ['abc']), [1]);
     test.done();
   },
+  '2 tests, 1 match': function(test) {
+    test.expect(1);
+    test.deepEqual(alien.match(['acd','bcd'], ['acd', 'abc']), [1,0]);
+    test.done();
+  },
+//   'target test': function(test) {
+//     test.expect(1);
+//     test.equal(alien.match('3 5 4\n\
+// abc\n\
+// bca\n\
+// dac\n\
+// dbc\n\
+// cba\n\
+// (ab)(bc)(ca)\n\
+// abc\n\
+// (abc)(abc)(abc)\n\
+// (zyx)bc'), [2,1,3,0]);
+//     test.done();
+//   },
 };
