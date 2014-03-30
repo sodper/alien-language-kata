@@ -30,7 +30,12 @@ exports.match = {
   },
   '2 tests, 1 match': function(test) {
     test.expect(1);
-    test.deepEqual(alien.match(['acd','bcd'], ['acd', 'abc']), [1,0]);
+    test.deepEqual(alien.match(['acd','bcd'], ['acd','abc']), [1,0]);
+    test.done();
+  },
+  '1 paren test, 3 matches': function(test) {
+    test.expect(1);
+    test.deepEqual(alien.match(['ade','bde','cde'], ['(abc)de']), [3]);
     test.done();
   },
 //   'target test': function(test) {
