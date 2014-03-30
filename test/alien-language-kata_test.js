@@ -38,18 +38,9 @@ exports.match = {
     test.deepEqual(alien.match(['ade','bde','cde'], ['(abc)de']), [3]);
     test.done();
   },
-//   'target test': function(test) {
-//     test.expect(1);
-//     test.equal(alien.match('3 5 4\n\
-// abc\n\
-// bca\n\
-// dac\n\
-// dbc\n\
-// cba\n\
-// (ab)(bc)(ca)\n\
-// abc\n\
-// (abc)(abc)(abc)\n\
-// (zyx)bc'), [2,1,3,0]);
-//     test.done();
-//   },
+  'target test': function(test) {
+    test.expect(1);
+    test.deepEqual(alien.match(['abc','bca','dac','dbc','cba'], ['(ab)(bc)(ca)','abc','(abc)(abc)(abc)','(zyx)bc']), [2,1,3,0]);
+    test.done();
+  },
 };
